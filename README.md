@@ -1,44 +1,63 @@
-🚗 ESP32 Wi-Fi Controlled Car with L298N Motor Driver
-This project showcases a simple yet powerful Wi-Fi controlled robotic car built using the ESP32 microcontroller and the L298N dual H-bridge motor driver. Designed for hobbyists and learners, it demonstrates how to control a car remotely over Wi-Fi using a web interface hosted directly on the ESP32.
+# 🚗 ESP32 Wi-Fi Controlled Car
 
-🔧 Features
-Wi-Fi Control: Drive the car using any device with a browser—no app required!
+Welcome to the official documentation for the **ESP32 Wi-Fi Controlled Car** project using the **L298N motor driver**. This page guides you through the hardware setup, software implementation, and usage instructions to build your own remote-controlled robotic car.
 
-Web Interface: Responsive control panel served from ESP32 with buttons for forward, backward, left, right, and stop.
+---
 
-Dual Motor Control: L298N handles two DC motors for differential steering.
+## 📦 Project Overview
 
-Compact & Affordable: Uses minimal components and is perfect for DIY robotics.
+This project demonstrates how to control a two-wheel drive car using an ESP32 microcontroller over Wi-Fi. The car hosts a web interface that allows users to send movement commands directly from a browser.
 
-🧰 Hardware Required
-ESP32 Dev Board
+---
 
-L298N Motor Driver Module
+## 🔧 Hardware Components
 
-2x DC Motors
+- ESP32 Dev Board  
+- L298N Motor Driver Module  
+- 2x DC Motors  
+- Power Supply (Li-ion battery or similar)  
+- Jumper Wires  
+- Robot Chassis  
 
-Power Supply (Li-ion battery or similar)
+---
 
-Jumper Wires & Chassis
+## 🛠️ Wiring Instructions
 
-💻 Software Highlights
-Written in Arduino/C++ using the ESPAsyncWebServer library
+| ESP32 Pin | L298N Pin | Description         |
+|-----------|-----------|---------------------|
+| D2        | IN1       | Motor A control     |
+| D4        | IN2       | Motor A control     |
+| D16       | IN3       | Motor B control     |
+| D17       | IN4       | Motor B control     |
+| VIN       | VCC       | Power supply        |
+| GND       | GND       | Common ground       |
 
-Real-time motor control via HTTP requests
+---
 
-Modular code structure for easy customization
+## 💻 Software Setup
 
-📦 Repository Contents
-/src: Arduino sketch and HTML interface
+1. Install the **ESPAsyncWebServer** and **AsyncTCP** libraries in Arduino IDE.
+2. Upload the provided sketch to your ESP32.
+3. Connect to the ESP32's Wi-Fi network or assign it to your local router.
+4. Access the car's control panel via the IP address shown in Serial Monitor.
 
-/docs: Wiring diagrams and setup instructions
+---
 
-/assets: Images and demo videos
+## 🌐 Web Interface
 
-🚀 Getting Started
-Clone the repo and open the sketch in Arduino IDE.
+The ESP32 hosts a simple HTML page with buttons for:
+- Forward
+- Backward
+- Left
+- Right
+- Stop
 
-Connect your ESP32 and upload the code.
+Each button sends an HTTP GET request to control the motors in real time.
 
-Power the car and connect to its Wi-Fi hotspot or local network.
+---
 
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/yourusername/esp32-wifi-car.git
+cd esp32-wifi-car
